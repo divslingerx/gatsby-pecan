@@ -17,7 +17,8 @@ import "../../SOURCE/css/main.css"
 
 export const IndexPageTemplate = ({
   menu,
-  gallery
+  gallery,
+  mainImage
 }) => (
     <>
       <Header logo={logo} />
@@ -37,12 +38,12 @@ IndexPageTemplate.propTypes = {
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
-  console.log(frontmatter)
+  console.log("FRONTMATTER", frontmatter)
 
   return (
     <div>
       <IndexPageTemplate
-        logo={frontmatter.logo}
+        mainImage={frontmatter.mainImage}
         title={frontmatter.title}
         menu={frontmatter.menu}
         gallery={frontmatter.gallery}
@@ -65,6 +66,13 @@ export const pageQuery = graphql`
   query IndexPageTemplate {
   markdownRemark(frontmatter: {templateKey: {eq: "index-page"}}) {
     frontmatter {
+      mainImage {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       menu{
         sections{
           heading

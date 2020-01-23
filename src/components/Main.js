@@ -25,7 +25,7 @@ export default ({ menu }) => {
             <div className="menu-list">
               {menu.sections.map(section => {
                 return (
-                  <MenuSection section={section} />
+                  <MenuSection section={section} key={section.heading} />
                 )
               })}
             </div>

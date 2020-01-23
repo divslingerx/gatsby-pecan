@@ -1,8 +1,14 @@
 import React from "react"
 
-const Banner = () => {
+const Banner = ({ mainImage }) => {
   return (
-    <section className="home-banner-area relative">
+    <section className="home-banner-area relative" style={{
+      backgroundImage: `url(${
+        !!mainImage.childImageSharp ? mainImage.childImageSharp.fluid.src : mainImage
+        })`,
+      backgroundPosition: `top left`,
+      backgroundAttachment: `fixed`,
+    }}>
       <div className="container">
         <div className="row height align-items-center justify-content-center">
           <div className="home-banner-content col-lg-5">
