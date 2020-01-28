@@ -2,7 +2,7 @@
 templateKey: index-page
 mainImage: /img/header-bg.jpg
 menu:
-  section:
+  sections:
     - heading: Appetizers
       items:
         - description: >-
