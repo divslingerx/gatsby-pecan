@@ -1,15 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Banner from "../components/Banner"
 import ChefQuote from "../components/ChefQuote"
 import Contact from "../components/Contact"
-import Footer from "../components/Footer"
 import Gallery from "../components/Gallery"
-import Header from "../components/Header"
 import Main from "../components/Main"
 import PropTypes from 'prop-types'
+import Layout from "../components/Layout"
 
-import logo from "../img/logo.png"
+
 
 import "../styles/css/font-awesome.min.css"
 import "../styles/css/bootstrap.css"
@@ -18,16 +16,15 @@ import "../styles/css/main.css"
 export const IndexPageTemplate = ({
   menu,
   gallery,
-  mainImage
+  location
 }) => (
     <>
-      <Header logo={logo} />
-      <Banner mainImage={mainImage} />
-      <Main menu={menu} />
-      <Gallery gallery={gallery} />
-      <ChefQuote />
-      <Contact />
-      <Footer />
+      <Layout location={location}>
+        <Main menu={menu} />
+        {/* <Gallery gallery={gallery} />
+        <ChefQuote /> */}
+        <Contact />
+      </Layout>
     </>
   )
 
@@ -36,10 +33,8 @@ IndexPageTemplate.propTypes = {
   title: PropTypes.string,
 }
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data, location }) => {
   const { frontmatter } = data.markdownRemark
-  console.log("FRONTMATTER", frontmatter)
-
   return (
     <div>
       <IndexPageTemplate
@@ -47,6 +42,7 @@ const IndexPage = ({ data }) => {
         title={frontmatter.title}
         menu={frontmatter.menu}
         gallery={frontmatter.gallery}
+        location={location}
       />
     </div>
   )
@@ -66,13 +62,6 @@ export const pageQuery = graphql`
   query IndexPageTemplate {
   markdownRemark(frontmatter: {templateKey: {eq: "index-page"}}) {
     frontmatter {
-      mainImage {
-          childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
       menu{
         sections{
           heading

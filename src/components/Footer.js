@@ -2,6 +2,7 @@ import React from 'react'
 import facebook from '../img/social/facebook.svg'
 import instagram from '../img/social/instagram.svg'
 import twitter from '../img/social/twitter.svg'
+import TelephoneLink from "../components/TelephoneLink"
 
 const Footer = class extends React.Component {
   render() {
@@ -15,6 +16,7 @@ const Footer = class extends React.Component {
                 <ul>
                   <li>296 Washington Street</li>
                   <li>Brighton, MA 02135</li>
+                  <li><TelephoneLink /></li>
                 </ul>
               </div>
             </div>
