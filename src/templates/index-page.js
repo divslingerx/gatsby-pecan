@@ -11,9 +11,9 @@ import PropTypes from 'prop-types'
 
 import logo from "../img/logo.png"
 
-import "../../SOURCE/css/font-awesome.min.css"
-import "../../SOURCE/css/bootstrap.css"
-import "../../SOURCE/css/main.css"
+import "../styles/css/font-awesome.min.css"
+import "../styles/css/bootstrap.css"
+import "../styles/css/main.css"
 
 export const IndexPageTemplate = ({
   menu,

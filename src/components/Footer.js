@@ -26,7 +26,7 @@ const Footer = class extends React.Component {
                 <div className="" id="mc_embed_signup">
                   <form >
                     <div className="input-group">
-                      <input type="text" className="form-control" name="EMAIL"
+                      <input className="form-control" name="EMAIL"
 
                         required="" type="email" />
                       <div style={{ background: "#c37236" }} className="input-group-btn">
