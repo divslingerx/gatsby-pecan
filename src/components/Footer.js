@@ -13,9 +13,8 @@ const Footer = class extends React.Component {
               <div className="single-footer-widget">
                 <h4 style={{ color: "#c37236" }}>Contact</h4>
                 <ul>
-                  <li><a href="#">296 Washington Street</a></li>
-                  <li><a href="#">Brighton, MA 02135</a></li>
-
+                  <li>296 Washington Street</li>
+                  <li>Brighton, MA 02135</li>
                 </ul>
               </div>
             </div>
